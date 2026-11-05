@@ -1,0 +1,1 @@
+package com.print.kiosk.service.interfaces; public interface ClaimExpirationService{int releaseExpiredClaims();}

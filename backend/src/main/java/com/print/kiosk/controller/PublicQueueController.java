@@ -1,0 +1,3 @@
+package com.print.kiosk.controller;
+import com.print.kiosk.dto.response.QueueEntryResponse;import com.print.kiosk.service.interfaces.QueueService;import org.springframework.data.domain.*;import org.springframework.data.web.PageableDefault;import org.springframework.http.ResponseEntity;import org.springframework.web.bind.annotation.*;
+@RestController @RequestMapping("/api/print-requests/queue") public class PublicQueueController{private final QueueService service;public PublicQueueController(QueueService s){service=s;}@GetMapping public ResponseEntity<Page<QueueEntryResponse>> queue(@RequestParam(required=false)String search,@PageableDefault(size=20)Pageable pageable){return ResponseEntity.ok(service.getPublicQueue(search,pageable));}}
